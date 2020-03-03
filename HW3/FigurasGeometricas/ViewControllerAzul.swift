@@ -36,6 +36,17 @@ class ViewControllerAzul: UIViewController {
         vistaInicial.varImage = imgEsfera.image!
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if let _ = Double(tfRadio.text!) {
+            
+            return true
+            
+        } else {
+            createAlert()
+            return false
+        }
+    }
+    
     
     func createAlert () {
         let alerta = UIAlertController(title: "Error", message: "Los campos deben tener dato", preferredStyle: .alert)
